@@ -9,7 +9,7 @@ const searchFood = () => {
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchData}`;
     // console.log(url)
     if(!searchData) {
-        alert("Pleaser enter a valid input");
+        alert("Pleaser enter a valid name");
         return;
     }
     fetch(url)

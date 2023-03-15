@@ -1,8 +1,10 @@
 
 //------------- handle search button-----------
 const searchFood = () => {
+    // e.preventDefault()
     const searchField = document.getElementById('mealInput'); 
-    const searchData = searchField.value   
+    const searchData = searchField.value 
+    searchField.value = ''  
     // console.log(searchData)   
     const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchData}`;
     // console.log(url)
@@ -12,13 +14,18 @@ const searchFood = () => {
     }
     fetch(url)
     .then(res => res.json())
-    .then(data => displayMealInfo(data.meals))
+    .then(data => {
+        // console.log(data.meals)
+        displayMealInfo(data.meals)
+    })
 }
 
 const displayMealInfo = mealData => {
     const mealContainer = document.getElementById('mealCard');
     // console.log(mealData)
+    mealContainer.innerHTML = ''
     mealData.forEach(item => {
+        // console.log(item)
         const foodItemName = document.createElement('div');
         foodItemName.className = 'meal-items';
         itemPosition = item.idMeal;
@@ -49,11 +56,11 @@ fetch(url)
 const displayDetails = mealItemDetails => {
     const mealItemsInformation = document.getElementById('mealItemsInfo');
     mealItemsInformation.innerHTML = '';
-    console.log(mealItemDetails)
+    // console.log(mealItemDetails)
     mealItemDetails.forEach(items => {
         const mealItemsInformations = document.createElement('div');
         mealItemsInformations.className = 'ingredients-info';
-        console.log(items.strMeal);
+        // console.log(items.strMeal);
         const itemsName = document.createElement('h1');
         const ingredients = document.createElement('h5');
         ingredients.innerText = 'Ingredients';
@@ -62,6 +69,7 @@ const displayDetails = mealItemDetails => {
         const imgUrl = document.createElement('img');
         imgUrl.src = items.strMealThumb;
         mealItemsInformations.appendChild(imgUrl);
+        // console.log(items)
         const li = `
         
          <li>${items.strIngredient1}</li>

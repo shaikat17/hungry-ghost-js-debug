@@ -21,6 +21,8 @@ const searchFood = () => {
 }
 
 const displayMealInfo = mealData => {
+    const mealItemsInformation = document.getElementById("mealItemsInfo");
+    mealItemsInformation.innerHTML = "";
     const mealContainer = document.getElementById('mealCard');
     // console.log(mealData)
     mealContainer.innerHTML = ''
@@ -72,19 +74,19 @@ const displayDetails = mealItemDetails => {
         // console.log(items)
         const li = `
         
-         <li>${items.strIngredient1}</li>
-         <li>${items.strIngredient2}</li>
-         <li>${items.strIngredient3}</li>
-         <li>${items.strIngredient4}</li>
-         <li>${items.strIngredient5}</li>
-         <li>${items.strIngredient6}</li>
-         <li>${items.strIngredient7}</li>
-         <li>${items.strIngredient8}</li>
-         <li>${items.strIngredient9}</li>
-         <li>${items.strIngredient10}</li>
-         <li>${items.strIngredient11}</li>
-         <li>${items.strIngredient12}</li>
-         <li>${items.strIngredient13}</li>
+         ${items.strIngredient1 ? `<li>${items.strIngredient1}</li>` : ""}
+         ${items.strIngredient2 ? `<li>${items.strIngredient2}</li>` : ""}
+         ${items.strIngredient3 ? `<li>${items.strIngredient3}</li>` : ""}
+         ${items.strIngredient4 ? `<li>${items.strIngredient4}</li>` : ""}
+         ${items.strIngredient5 ? `<li>${items.strIngredient5}</li>` : ""}
+         ${items.strIngredient6 ? `<li>${items.strIngredient6}</li>` : ""}
+         ${items.strIngredient7 ? `<li>${items.strIngredient7}</li>` : ""}
+         ${items.strIngredient8 ? `<li>${items.strIngredient8}</li>` : ""}
+         ${items.strIngredient9 ? `<li>${items.strIngredient9}</li>` : ""}
+         ${items.strIngredient10 ? `<li>${items.strIngredient10}</li>` : ""}
+         ${items.strIngredient11 ? `<li>${items.strIngredient11}</li>` : ""}
+         ${items.strIngredient12 ? `<li>${items.strIngredient12}</li>` : ""}
+         ${items.strIngredient13 ? `<li>${items.strIngredient13}</li>` : ""}
         `
         ul.innerHTML = li;
         mealItemsInformations.appendChild(itemsName);

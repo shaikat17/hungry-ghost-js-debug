@@ -37,6 +37,7 @@ h2  {
     /* padding: 15px; */
     text-align: center;
     overflow: hidden;
+    cursor: pointer;
 }
 
 .meal-items img {
